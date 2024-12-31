@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import scrollbarHide from 'tailwind-scrollbar-hide'
 
 export default {
   content: [
@@ -12,7 +13,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        'custom-radial': 'radial-gradient(circle, #5743EB4D,#5743EB4D, transparent, transparent)',
+      },
     },
   },
-  plugins: [],
+  plugins: [scrollbarHide]
 } satisfies Config;
