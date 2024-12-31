@@ -3,7 +3,7 @@ import GrowEarningQuickly from "./_home_page/GrowEarningQuickly"
 import WelcomeToTradePhere from "./_home_page/WelcomeToTradePhere"
 // import BecomeAnInvestor from "./_home_page/BecomeAnInvestor"
 import TradingviewWidget from "../components/TradingviewWidget"
-import Testimonialy from "./_home_page/Testimonialy"
+import Testimonial from "./_home_page/Testimonial"
 import BestFeatures from "./_home_page/BestFeatures"
 import GetInTouch from "./_home_page/GetInTouch"
 import Navbar from "@/components/Navbar"
@@ -17,7 +17,7 @@ const page = () => {
       <GrowEarningQuickly />
       <WelcomeToTradePhere />
      <TradingviewWidget />
-      <Testimonialy />
+      <Testimonial />
       <BestFeatures />
       <GetInTouch />
       <Footer />

@@ -1,20 +1,27 @@
 "use client";
+import { getUser } from '@/utils/controllers';
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const RightSidebar = () => {
   const [joined, setJoined] = useState(new Date('June 22, 2020'))
   const [assetsValue, setAssetsValue] = useState(0)
-  const [assets, setAssets] = useState(['BTC', 'ETH', 'USDT', 'BNB', 'ADA', 'XRP', 'DOGE', 'DOT', 'UNI'])
+  const assets = ['BTC', 'ETH', 'USDT', 'BNB', 'ADA', 'XRP', 'DOGE', 'DOT', 'UNI']
   const setDate = (param: string) => {
     setJoined(new Date(param))
   }
   const assetsFunc = (param: number) => {
     setAssetsValue(param)
   }
-  const setAssetsData = (param: [string]) => {
-    setAssets(param)
-  }
+  useEffect(() => {
+    getUser().then(res => {
+      if(res){
+        const { user } = res
+        setDate(user.createdAt)
+        assetsFunc(user.wallet.assetValue)
+      }
+    })
+  })
   return (
     <div className='border-l-[#C1BDD41F]'>
       <div className="bg-[#1992C9] text-white min-h-[217px] rounded-[10px] flex flex-col items-center justify-center">

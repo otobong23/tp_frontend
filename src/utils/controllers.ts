@@ -13,7 +13,7 @@ export interface SignupResponse {
   token?: string;
   message: string;
   success: boolean;
-  user?:{
+  user?: {
     firstName: string;
     lastName: string;
     email: string;
@@ -22,7 +22,7 @@ export interface SignupResponse {
 
 export const SignupController: (data: SignupData) => Promise<SignupResponse | null> = async (data) => {
   let response: SignupResponse | null = null;
-   await api({
+  await api({
     url: '/auth/signup',
     method: 'POST',
     data: data
@@ -43,11 +43,11 @@ interface LoginData {
   password: string;
 }
 
-export interface LoginResponse{
+export interface LoginResponse {
   token?: string;
   message: string;
   success: boolean;
-  user?:{
+  user?: {
     firstName: string;
     lastName: string;
     email: string;
@@ -68,4 +68,34 @@ export const LoginController: (data: LoginData) => Promise<LoginResponse | null>
   })
 
   return response;
+}
+
+export interface getUserResponse {
+  success: boolean,
+  user: {
+    firstName: string,
+    lastName: string,
+    email: string,
+    wallet: {
+      balance: number,
+      assetValue: number,
+      watchList: string[]
+    },
+    createdAt: string,
+    updatedAt: string
+  }
+}
+
+export const getUser: () => Promise<getUserResponse | null> = async () => {
+  let response: getUserResponse | null = null
+  await api({
+    url: '/user/getUser',
+    method: 'GET'
+  }).then(res => {
+    showToast('success', res.data.message);
+    response = res.data;
+  }).catch(err => {
+    showToast('error', err.message);
+  })
+  return response
 }

@@ -3,14 +3,14 @@ import React, { useState, useEffect } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-// import Image from 'next/image';
+import Image from 'next/image';
 import clientImg1 from '@/assets/client1.png'
 // import { div } from 'framer-motion/client';
 // import { motion } from 'framer-motion';
 // import styles from './Carousel.module.css';
 
 
-const Testimonialy = () => {
+const Testimonial = () => {
 
   const [isClient, setIsClient] = useState(false);
 
@@ -70,7 +70,7 @@ const Testimonialy = () => {
 
         <div className='p-[--padding-x]'>
           <Carousel
-            
+
             responsive={responsive}
             infinite
             autoPlay
@@ -85,8 +85,8 @@ const Testimonialy = () => {
               testimonies.map(({ image, name, country, title, text }, index) => (
                 <div key={index} className='bg-[#ffff] p-[3rem] rounded-[8.51px] custom-carousel-item '>
                   <div className='flex items-center gap-3 my-4'>
-                    {/* <Image src={image} alt="alt" className=' w-2 h-2'/> */}
-                    <div className='rounded-full h-[50px] w-[50px] bg-slate-400'>
+                    <div className='rounded-full h-[50px] w-[50px]'>
+                      <Image src={image} alt="alt" className='w-full object-cover' />
                     </div>
                     <div className='text-left'>
                       <h1 className='text-[15.31px] font-bold'>{name}</h1>
@@ -108,4 +108,4 @@ const Testimonialy = () => {
   )
 }
 
-export default Testimonialy
+export default Testimonial

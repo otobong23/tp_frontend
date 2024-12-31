@@ -6,7 +6,7 @@ const page = () => {
     <div>
       <div className="flex justify-between items-center pb-14">
         <div className="col">
-          <h1 className='text-2xl font-bold text-[#353535]'>Settings</h1>
+          <h1 className='text-2xl font-bold text-[#353535]'>Logout</h1>
           <p className='text-sm text-[#ABABAB]'>You have total control</p>
         </div>
         <div className="col">

@@ -23,7 +23,7 @@ interface StringDataProps {
   str: string
 }
 export const StringDate:FC<StringDataProps> = ({ str }) => {
-  const [getCurrentDate, setCurrentDate] = useState(new Date(str))
+  const [getCurrentDate] = useState(new Date(str))
   return (
     <>{getCurrentDate.toDateString()}</>
   )
