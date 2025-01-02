@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 const RightSidebar = () => {
-  const router = useRouter()
+  // const router = useRouter()
   const [joined, setJoined] = useState(new Date('June 22, 2020'))
   const [assetsValue, setAssetsValue] = useState(0)
   const assets = ['BTC', 'ETH', 'USDT']
