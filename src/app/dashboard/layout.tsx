@@ -1,6 +1,7 @@
 import BottomBar from "@/components/BottomBar";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
+import WithAuth from "./WithAuth";
 
 
 export default function Layout({
@@ -15,7 +16,9 @@ export default function Layout({
       </div>
       <div className="flex-[3] content flex flex-col h-screen">
         <div className="h-[88.8%] lg:h-full overflow-y-scroll scrollbar-hide px-7 pt-10">
+          <WithAuth>
           {children}
+          </WithAuth>
         </div>
         <div className="h-[11.2%] lg:hidden flex items-center justify-center px-2">
           <BottomBar />

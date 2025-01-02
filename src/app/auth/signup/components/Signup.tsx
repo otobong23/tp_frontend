@@ -24,7 +24,7 @@ const Signup: React.FC = () => {
     const res = await SignupController({ firstName, lastName, email, password });
     // setResponse(res);
     if (res && res.token) {
-      Cookies.set('Authorization', res.token, {
+      Cookies.set('Authorization', 'Bearer ' + res.token, {
         expires: 3,
       });
       ROUTER.replace('/dashboard');

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import serverImg from '@/assets/server.png'
+import TradingViewTickerTape from '@/components/TradingViewTickerTape'
 // import aboutImg from '@/assets/whoweare.svg'
 // import { Icon } from '@iconify/react/dist/iconify.js'
 
@@ -33,8 +34,8 @@ const Whoweare = () => {
         </div>
       </div>
 
-      <div className='bg-[#1992C9] h-[136px]'>
-
+      <div className='bg-[#1992C9] h-[136px] flex items-center'>
+        <TradingViewTickerTape />
       </div>
     </div>
 

@@ -12,7 +12,7 @@ const page = () => {
   return (
     <div>
       <Navbar />
-     <Whoweare />.
+     <Whoweare />
      <WelcometoTphere />
      <Legal />
       <BestFeatures />

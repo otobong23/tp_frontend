@@ -20,12 +20,11 @@ const Login: React.FC = () => {
     const res = await LoginController({email, password});
 
     if(res && res.token){
-      Cookies.set('Authorization', res.token, {
+      Cookies.set('Authorization', 'Bearer ' + res.token, {
         expires: 3
       });
       ROUTER.replace('/dashboard');
     }
-    ROUTER.push('/auth/signup');
   }
 
   const handleShowPassword = () => {

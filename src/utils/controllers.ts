@@ -1,6 +1,6 @@
 import api from '@/utils/axios';
 import { showToast } from '@/utils/alert';
-// import Signup from '../app/auth/signup/components/Signup';
+import Cookies from 'js-cookie';
 
 interface SignupData {
   firstName: string;
@@ -87,15 +87,18 @@ export interface getUserResponse {
 }
 
 export const getUser: () => Promise<getUserResponse | null> = async () => {
-  let response: getUserResponse | null = null
+  let response: getUserResponse | Error | null = null
+  const authorization = Cookies.get('Authorization')
   await api({
     url: '/user/getUser',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      authorization
+    }
   }).then(res => {
-    showToast('success', res.data.message);
     response = res.data;
   }).catch(err => {
-    showToast('error', err.message);
+    response = err
   })
   return response
 }

@@ -4,6 +4,7 @@ import React, { useEffect } from 'react'
 import img1 from '@/assets/grow1.png'
 import img2 from '@/assets/grow2.png'
 import axios from 'axios'
+import TradingViewTickerTape from '@/components/TradingViewTickerTape';
 
 const GrowEarningQuickly = () => {
   useEffect(() => {
@@ -33,14 +34,14 @@ const GrowEarningQuickly = () => {
             </div>
           </header>
         </div>
-        <div className='flex mt-5 w-full h-[300px] lg:h-[640px] overflow-hidden flex-[1] bg-custom-radial'>
+        <div className='flex mt-5 w-full h-[300px] lg:h-[640px] overflow-hidden flex-[1] bg-custom-radial z-10'>
           <Image src={img1} alt="alt" className='w-[298.69px] lg:w-[570.21px] h-[489.94px] lg:h-[932.13px] object-cover translate-x-[1rem] lg:translate-x-[4rem]' />
           <Image src={img2} alt="alt" className='w-[221.69px] lg:w-[430.21px] h-[489.94px] lg:h-[932.13px] mt-8 object-contain -translate-x-[4rem] lg:-translate-x-[5.5rem]' />
         </div>
       </div>
 
-      <div className='bg-[#1992C9] h-[136px]'>
-
+      <div className='bg-[#1992C9] h-[136px] flex items-center'>
+        <TradingViewTickerTape />
       </div>
 
     </div>

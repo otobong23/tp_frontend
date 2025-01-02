@@ -1,17 +1,25 @@
 "use client";
 import { getUser } from '@/utils/controllers';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 const RightSidebar = () => {
+  const router = useRouter()
   const [joined, setJoined] = useState(new Date('June 22, 2020'))
   const [assetsValue, setAssetsValue] = useState(0)
-  const assets = ['BTC', 'ETH', 'USDT', 'BNB', 'ADA', 'XRP', 'DOGE', 'DOT', 'UNI']
+  const assets = ['BTC', 'ETH', 'USDT']
+  const [firstName, setFirstName] = useState('user')
+  const [lastName, setLastName] = useState('name')
+  const [email, setEmail] = useState('')
   const setDate = (param: string) => {
     setJoined(new Date(param))
   }
   const assetsFunc = (param: number) => {
     setAssetsValue(param)
+  }
+  const setName = (first:string, last:string) => {
+    setFirstName(first);setLastName(last)
   }
   useEffect(() => {
     getUser().then(res => {
@@ -19,15 +27,18 @@ const RightSidebar = () => {
         const { user } = res
         setDate(user.createdAt)
         assetsFunc(user.wallet.assetValue)
+        setName(user.firstName, user.lastName)
+        setEmail(user.email)
       }
     })
+    // .catch(err => {router.push('/auth/login/')})
   })
   return (
     <div className='border-l-[#C1BDD41F]'>
       <div className="bg-[#1992C9] text-white min-h-[217px] rounded-[10px] flex flex-col items-center justify-center">
         <h1 className='text-2xl pb-9 font-bold'>Trader Profile</h1>
-        <h2 className='pb-5 text-xl font-bold'>Han Ji Pyeong</h2>
-        <Link href='mailto:email@gmail.com' className='text-base'>email@gmail.com</Link>
+        <h2 className='pb-5 text-xl font-bold'>{firstName} {lastName}</h2>
+        <Link href='mailto:email@gmail.com' className='text-base'>{email}</Link>
       </div>
 
       <div className='px-[14px] pt-10 pb-8 mb-9 border-b-[#F4F2FB] border-b'>

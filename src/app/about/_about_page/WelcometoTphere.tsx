@@ -22,20 +22,20 @@ const WelcometoTphere = () => {
         </div>
       </div>
 
-     
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-9 lg:gap-16 xl:gap-24 w-full ">
-          <div className="flex-1 mt-7">
-            <p className='text-[12px] lg:text-[16px] font-semibold text-[#FD8D1E]'>We lead with reliability</p>
-            <h1 className='text-[40px] lg:text-[64px] font-bold leading-[54px] lg:leading-[84px] py-4'>Why Choose Us?</h1>
-            <p className='text-base lg:text-base leading-[30px] text-[#848484] font-normal lg:w-[75%]'>
-            If you find yourself here, you are definitely in search of reliable and profitable investment. Yes, you are just at the right place! Our company offers trust assets management of the highest quality on the basis of foreign exchange and profitable trade through Bitcoin exchanges. There is no other worldwide financial market that can guarantee a daily ability to generate constant profit with the large price swings of Bitcoin. Proposed modalities for strengthening cooperation will be accepted by anyone who uses cryptocurrency and knows about its fantastic prospects. Your deposit is working on an ongoing basis, and makes profit every day with the ability to withdraw profit instantly. Join our company today and start making high profits!            </p>
-          </div>
-          <div className="flex-1 ">
-            <Image src={serverImg1} className='w-[395.26px] md:w-[575.92px] h-[260px] md:h-[447.32px]' alt="alt" />
-          </div>
-        </div>
 
-      
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-9 lg:gap-16 xl:gap-24 w-full ">
+        <div className="flex-1 mt-7">
+          <p className='text-[12px] lg:text-[16px] font-semibold text-[#FD8D1E]'>We lead with reliability</p>
+          <h1 className='text-[40px] lg:text-[64px] font-bold leading-[54px] lg:leading-[84px] py-4'>Why Choose Us?</h1>
+          <p className='text-base lg:text-base leading-[30px] text-[#848484] font-normal lg:w-[75%]'>
+            If you find yourself here, you are definitely in search of reliable and profitable investment. Yes, you are just at the right place! Our company offers trust assets management of the highest quality on the basis of foreign exchange and profitable trade through Bitcoin exchanges. There is no other worldwide financial market that can guarantee a daily ability to generate constant profit with the large price swings of Bitcoin. Proposed modalities for strengthening cooperation will be accepted by anyone who uses cryptocurrency and knows about its fantastic prospects. Your deposit is working on an ongoing basis, and makes profit every day with the ability to withdraw profit instantly. Join our company today and start making high profits!            </p>
+        </div>
+        <div className="flex-1 ">
+          <Image src={serverImg1} className='w-[395.26px] md:w-[575.92px] h-[260px] md:h-[447.32px]' alt="alt" />
+        </div>
+      </div>
+
+
     </div>
   )
 }
