@@ -1,9 +1,8 @@
 'use client';
 import Image from 'next/image'
-import React, { useEffect } from 'react'
+import React from 'react'
 import img1 from '@/assets/grow1.png'
 import img2 from '@/assets/grow2.png'
-import axios from 'axios'
 import TradingViewTickerTape from '@/components/TradingViewTickerTape';
 
 const GrowEarningQuickly = () => {

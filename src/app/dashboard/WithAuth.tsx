@@ -15,7 +15,7 @@ const WithAuth: React.FC<{ children: ReactNode }> = ({ children }) => {
     } else {
       router.replace('/auth/login');
     }
-  }, []); // Runs only once on client-side
+  }, [router]); // Runs only once on client-side
 
   if (!isAuthenticated) {
     return null; // Optionally add a loading spinner here
