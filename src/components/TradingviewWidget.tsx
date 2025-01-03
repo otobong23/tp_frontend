@@ -51,13 +51,7 @@ function TradingViewWidget() {
           "all|1M"
         ]
       }`;
-
     container.current?.appendChild(script);
-
-    // Cleanup: Remove the script on unmount
-    return () => {
-      container.current?.removeChild(script);
-    };
   }, []);
 
   return (

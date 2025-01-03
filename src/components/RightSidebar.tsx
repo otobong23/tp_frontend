@@ -31,8 +31,8 @@ const RightSidebar = () => {
         setEmail(user.email)
       }
     })
-    .catch(err => {router.push('/auth/login/')})
-  }, [])
+    .catch(() => {router.push('/auth/login/')})
+  }, [router])
   return (
     <div className='border-l-[#C1BDD41F]'>
       <div className="bg-[#1992C9] text-white min-h-[217px] rounded-[10px] flex flex-col items-center justify-center">
