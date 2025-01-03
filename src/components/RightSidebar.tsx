@@ -1,10 +1,11 @@
 "use client";
 import { getUser } from '@/utils/controllers';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 const RightSidebar = () => {
-  // const router = useRouter()
+  const router = useRouter()
   const [joined, setJoined] = useState(new Date('June 22, 2020'))
   const [assetsValue, setAssetsValue] = useState(0)
   const assets = ['BTC', 'ETH', 'USDT']
@@ -30,8 +31,8 @@ const RightSidebar = () => {
         setEmail(user.email)
       }
     })
-    // .catch(err => {router.push('/auth/login/')})
-  })
+    .catch(err => {router.push('/auth/login/')})
+  }, [])
   return (
     <div className='border-l-[#C1BDD41F]'>
       <div className="bg-[#1992C9] text-white min-h-[217px] rounded-[10px] flex flex-col items-center justify-center">
@@ -58,7 +59,6 @@ const RightSidebar = () => {
           {assets.map((item) => (
             <div key={item} className="flex justify-between pb-5">
               <p>{item}</p>
-              <p></p>
             </div>))}
         </div>
       </div>

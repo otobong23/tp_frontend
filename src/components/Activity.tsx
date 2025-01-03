@@ -4,7 +4,7 @@ import btc from '@/assets/btc.png'
 import eth from '@/assets/eth.png'
 import Image from 'next/image';
 
-interface ActivityProps {
+export interface ActivityProps {
   transaction: string;  //'Bitcoin' | 'Ethereum' | 'USDT'
   amount: string;
   total: number;

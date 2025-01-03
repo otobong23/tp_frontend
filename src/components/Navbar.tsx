@@ -43,7 +43,7 @@ const Navbar = () => {
           <Link href="/" className='relative max-w-14'>
             <Image src={logo} alt='logo' className='object-cover w-full' /></Link>
         </div>
-        <div className="nav hidden lg:block">
+        <div className="nav hidden lg:flex items-center">
           <ul className="navlinks flex gap-8">
             {navlist.map(({ title, path }) => (<li key={title} ><Link href={path} className='hover:font-semibold transition-all duration-300'>{title}</Link></li>))}
             <li><Link href='/dashboard' className='hover:font-semibold transition-all duration-300'>Dashboard</Link></li>

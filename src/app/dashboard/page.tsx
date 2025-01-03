@@ -1,34 +1,50 @@
-import Activity from '@/components/Activity'
-import { CurrentDate } from '@/components/Date'
+'use client';
+import Activity, { ActivityProps } from '@/components/Activity'
 import TradingviewWidget from '@/components/TradingviewWidget'
+import { getUser } from '@/utils/controllers';
 import { Icon } from '@iconify/react/dist/iconify.js'
 import Link from 'next/link'
-import React from 'react'
+import { useEffect, useState } from 'react'
+
+// const data = [
+//   {
+//     transaction: "Bitcoin",
+//     amount: '0.5',
+//     total: 15000,
+//     status: 'successful',
+//     date: '2024-12-27',
+//   },
+//   {
+//     transaction: "Ethereum",
+//     amount: '2.0',
+//     total: 3000,
+//     status: 'successful',
+//     date: '2024-12-26',
+//   },
+//   {
+//     transaction: "USDT",
+//     amount: '200',
+//     total: 200,
+//     status: 'successful',
+//     date: '2024-12-20',
+//   },
+// ];
 
 const page = () => {
-  const data = [
-    {
-      transaction: "Bitcoin",
-      amount: '0.5',
-      total: 15000,
-      status: 'successful',
-      date: '2024-12-27',
-    },
-    {
-      transaction: "Ethereum",
-      amount: '2.0',
-      total: 3000,
-      status: 'successful',
-      date: '2024-12-26',
-    },
-    {
-      transaction: "USDT",
-      amount: '200',
-      total: 200,
-      status: 'successful',
-      date: '2024-12-20',
-    },
-  ];
+  const [wallet, setWallet] = useState(0)
+  const [assetsValue, setAssetsValue] = useState(0)
+  const data: ActivityProps[] = []
+
+  useEffect(() => {
+      getUser().then(res => {
+        if(res){
+          const { user } = res
+          setAssetsValue(user.wallet.assetValue)
+          setWallet(user.wallet.balance)
+        }
+      })
+      .catch(err => {console.error(err)})
+    }, [])
   return (
     <div>
       <div className="flex justify-between items-center pb-14">
@@ -43,9 +59,9 @@ const page = () => {
 
       <div>
         <p className='text-[17.21px]'>Portfolio balance</p>
-        <h1 className='font-bold text-[31.55px]'>$13,175.11</h1>
-        <p className='text-[#20CB5C] text-[14.34px] font-normal flex items-center gap-1'><Icon icon="mynaui:chevron-up" className='text-[20px]' /> $24.74 (3.79%)</p>
-        <p className='text-[12.91px] text-[#888DA1] mt-1'>Today (<CurrentDate />)</p>
+        <h1 className='font-bold text-[31.55px]'>${wallet}</h1>
+        <p className='text-[#20CB5C] text-[14.34px] font-normal flex items-center gap-1'>{assetsValue ? <Icon icon="mynaui:chevron-up" className='text-[20px]' /> : ''} ${assetsValue} ({assetsValue ? (assetsValue / wallet) * 100 : 0}%)</p>
+        <p className='text-[12.91px] text-[#888DA1] mt-1'>Today ({new Date().toDateString()})</p>
       </div>
 
       <div className='mt-7 w-full'>

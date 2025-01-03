@@ -17,7 +17,6 @@ const Signup: React.FC = () => {
   const [ password, setPassword ] = useForm('');
   const [ confirmPassword, setConfirmPassword ] = useForm('');
   const ROUTER = useRouter();
-  // const [response, setResponse] = useState<SignupResponse | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -13,7 +13,6 @@ const Login: React.FC = () => {
   const [email, setEmail] = useForm('');
   const [password, setPassword] = useForm('');
   const ROUTER = useRouter();
-  // const [password, setPassword] = React.useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

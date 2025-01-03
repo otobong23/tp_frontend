@@ -7,12 +7,6 @@ import axios from 'axios'
 import TradingViewTickerTape from '@/components/TradingViewTickerTape';
 
 const GrowEarningQuickly = () => {
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: 'http://localhost:5000/api/home',
-    }).then(res => console.log(res.data.message))
-  })
   return (
     <div>
       <div className='lg:flex pl-[--padding-x] justify-between items-center w-full pt-[100px] lg:pt-[80px]'>
