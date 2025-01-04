@@ -4,6 +4,7 @@ import React from 'react'
 import img1 from '@/assets/grow1.png'
 import img2 from '@/assets/grow2.png'
 import TradingViewTickerTape from '@/components/TradingViewTickerTape';
+import Link from 'next/link'
 
 const GrowEarningQuickly = () => {
   return (
@@ -23,7 +24,7 @@ const GrowEarningQuickly = () => {
                 className='bg-transparent outline-none border-none py-5 text-[16px] w-[60%] flex-1'
               />
 
-              <button className='bg-[#1992C9] text-white text-[16px] px-[26px] font-light rounded-[12px]'>Get started</button>
+              <Link href="/auth/login" className='bg-[#1992C9] text-white text-[16px] px-[26px] font-light rounded-[12px]'>Get started</Link>
             </div>
           </header>
         </div>
