@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import serverImg from '@/assets/server.png'
 import TradingViewTickerTape from '@/components/TradingViewTickerTape'
+import Link from 'next/link'
 // import aboutImg from '@/assets/whoweare.svg'
 // import { Icon } from '@iconify/react/dist/iconify.js'
 
@@ -23,8 +24,8 @@ const Whoweare = () => {
               <input type="email" name="email" id="email" placeholder='Enter your email'
                 className='bg-transparent outline-none border-none py-5 text-[16px] w-[60%] flex-1'
               />
-
-              <button className='bg-[#1992C9] text-white text-[16px] px-[26px] font-light rounded-[12px]'>Get started</button>
+              
+              <Link href="/auth/login" className='bg-[#1992C9] flex items-center justify-center text-white text-[16px] px-[26px] font-light rounded-[12px]'>Get started</Link>
             </div>
           </header>
         </div>
