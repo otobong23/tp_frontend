@@ -15,7 +15,7 @@ export default function Layout({
         <LeftSidebar />
       </div>
       <div className="flex-[3] content flex flex-col h-screen">
-        <div className="h-[88.8%] lg:h-full overflow-y-scroll scrollbar-hide px-7 pt-10">
+        <div className="h-[88.8%] lg:h-full overflow-y-scroll overflow-x-hidden scrollbar-hide px-7 pt-10">
           <WithAuth>
           {children}
           </WithAuth>
