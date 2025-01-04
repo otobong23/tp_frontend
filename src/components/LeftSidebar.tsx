@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation'
 
 const LeftSidebar = () => {
   const pathname = usePathname()
-  const active = (path: string) => path === pathname
+  const active = (path: string) => pathname.startsWith(path);
   return (
     <div className='flex flex-col py-10 pl-14'>
       <Link href='/' className="logo flex gap-2 mb-14">
