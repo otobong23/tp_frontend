@@ -24,7 +24,7 @@ const GrowEarningQuickly = () => {
                 className='bg-transparent outline-none border-none py-5 text-[16px] w-[60%] flex-1'
               />
 
-              <Link href="/auth/login" className='bg-[#1992C9] text-white text-[16px] px-[26px] font-light rounded-[12px]'>Get started</Link>
+              <Link href="/auth/login" className='bg-[#1992C9] flex items-center justify-center text-white text-[16px] px-[26px] font-light rounded-[12px]'>Get started</Link>
             </div>
           </header>
         </div>
