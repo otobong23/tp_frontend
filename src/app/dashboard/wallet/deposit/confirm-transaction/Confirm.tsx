@@ -21,7 +21,7 @@ const Confirm = () => {
     const { label, amount } = useContextStore()
     const [usdtRate, setUsdtRate] = useState(0)
 
-    const [data, setData] = useState<any>()
+    const [data, setData] = useState<{response: {data: {message: string}}} | null>()
 
     useEffect(() => {
         if (!amount) router.back()
@@ -36,7 +36,7 @@ const Confirm = () => {
     const [textToCopy, setTextToCopy] = useState(getAddress());
     useEffect(() => {
         setTextToCopy(getAddress())
-    }, [textToCopy])
+    }, [textToCopy, getAddress])
 
     const handleCopy = async () => {
         try {
@@ -90,7 +90,7 @@ const Confirm = () => {
         try {
             setData(response)
             console.log('data',data)
-            showToast('success', data.response.data.message)
+            showToast('success', data?.response?.data.message || '')
         } catch (error) {
             console.log(error)
             showToast('error', 'failed to get the transactions')
