@@ -5,6 +5,7 @@ import btc from '@/assets/btc.png'
 import eth from '@/assets/eth.svg'
 import usdt from '@/assets/usdt.png'
 import useForm from '@/hooks/useForm';
+import { showToast } from '@/utils/alert';
 
 
 type activeType = 'Bitcoin' | 'Ethereum' | 'USDT'
@@ -23,7 +24,9 @@ const Withdraw = () => {
   const [address, setAddress] = useForm('')
 
   const handleWithdraw = () => {
-    
+    if(active && amount && address){
+      showToast("info", 'Something went Wrong, please Try again later')
+    }
   }
   return (
     <div>
