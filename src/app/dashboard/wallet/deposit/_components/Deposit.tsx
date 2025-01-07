@@ -1,11 +1,10 @@
 'use client';
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import btc from '@/assets/btc.png'
 import eth from '@/assets/eth.svg'
 import usdt from '@/assets/usdt.png'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import useForm from '@/hooks/useForm';
-import Link from 'next/link';
 import { useContextStore } from '@/context/DepositContext';
 import { useRouter } from 'next/navigation';
 import { showToast } from '@/utils/alert';
@@ -15,7 +14,7 @@ const RECIEVER_ETH_ADDRESS = '0xc92adc6fa9dc7d1aa8cbb10e2250f29f84669139'
 const RECIEVER_USDT_ADDRESS = 'TEZdBcxRZpMw4yJtA9RVTX8WyiCtXCzLzd'
 type activeType = 'Bitcoin' | 'Ethereum' | 'USDT'
 type listType = {
-    image: any, title: activeType, address: string
+    image: StaticImageData, title: activeType, address: string
 }
 const list:listType[] = [
     { image: btc, title: 'Bitcoin', address: RECIEVER_BTC_ADDRESS },
@@ -33,7 +32,7 @@ const Deposit = () => {
     useEffect(() => {
         handleLabel(active)
         handleAmount(Number(amount))
-    },[active, amount])
+    },[active, amount, handleAmount, handleLabel])
 
     const handleContinue = () => {
         if(active && amount){

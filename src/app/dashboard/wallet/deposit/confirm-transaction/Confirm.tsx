@@ -45,7 +45,7 @@ const Confirm = () => {
 
     useEffect(() => {
         getCryptoToUsdtRate(getLabel()).then(res => setUsdtRate(res))
-    }, [label, amount, usdtRate])
+    }, [label, amount, usdtRate, getLabel])
     return (
         <div className='flex justify-center'>
             <div className='w-full md:w-10/12 lg:w-8/12'>
