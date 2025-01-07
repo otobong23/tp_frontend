@@ -102,3 +102,51 @@ export const getUser: () => Promise<getUserResponse | null> = async () => {
   })
   return response
 }
+export const ethListen = async () => {
+  let response: any = null
+  const authorization = Cookies.get('Authorization')
+  await api({
+    url: '/user/ethListen',
+    method: 'POST',
+    headers: {
+      authorization
+    }
+  }).then(res => {
+    response = res.data;
+  }).catch(err => {
+    response = err
+  })
+  return response
+}
+export const btcListen = async () => {
+  let response: any = null
+  const authorization = Cookies.get('Authorization')
+  await api({
+    url: '/user/btcListen',
+    method: 'POST',
+    headers: {
+      authorization
+    }
+  }).then(res => {
+    response = res.data;
+  }).catch(err => {
+    response = err
+  })
+  return response
+}
+export const usdtListen = async () => {
+  let response: any = null
+  const authorization = Cookies.get('Authorization')
+  await api({
+    url: '/user/usdtListen',
+    method: 'POST',
+    headers: {
+      authorization
+    }
+  }).then(res => {
+    response = res.data;
+  }).catch(err => {
+    response = err
+  })
+  return response
+}
