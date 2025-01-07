@@ -34,9 +34,9 @@ const programs = [
     icon: 'gg:chart'
   },
   {
-    percent: null,
-    period: '',
-    text: 'min $ --------- $-------+',
+    percent: 300,
+    period: 'After 24 hours',
+    text: 'min $200,000 - $999,000',
     icon: 'gg:chart'
   }
 ]
@@ -56,7 +56,7 @@ const Page = () => {
       <div className="flex justify-between items-center pb-14">
         <div className="col">
           <h1 className='text-2xl font-bold text-[#353535]'>Plans</h1>
-          <p className='text-sm text-[#ABABAB]'>Make you money work for you</p>
+          <p className='text-sm text-[#ABABAB]'>Make your money work for you</p>
         </div>
         <div className="col">
           <Icon icon='hugeicons:notification-02' className='text-[#210F33] text-xl' />
