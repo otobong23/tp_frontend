@@ -16,7 +16,7 @@ const RECIEVER_USDT_ADDRESS = 'TEZdBcxRZpMw4yJtA9RVTX8WyiCtXCzLzd'
 const Confirm = () => {
     const { label, amount } = useContextStore()
     const [usdtRate, setUsdtRate] = useState(0)
-    
+
     const getAddress = () => {
         if (label === "Bitcoin") return RECIEVER_BTC_ADDRESS;
         if (label === "Ethereum") return RECIEVER_ETH_ADDRESS;
@@ -36,16 +36,15 @@ const Confirm = () => {
         return 'TRC20'
     }
 
-    const getLabel = () => {
-        if (label === "Bitcoin") return 'bitcoin';
-        if (label === "Ethereum") return 'ethereum';
-        if (label === "USDT") return 'usd';
-        return 'usd'
-    }
-
     useEffect(() => {
+        const getLabel = () => {
+            if (label === "Bitcoin") return 'bitcoin';
+            if (label === "Ethereum") return 'ethereum';
+            if (label === "USDT") return 'usd';
+            return 'usd'
+        }
         getCryptoToUsdtRate(getLabel()).then(res => setUsdtRate(res))
-    }, [label, amount, usdtRate, getLabel])
+    }, [label, amount, usdtRate])
     return (
         <div className='flex justify-center'>
             <div className='w-full md:w-10/12 lg:w-8/12'>
