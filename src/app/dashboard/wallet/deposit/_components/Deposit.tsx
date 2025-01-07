@@ -71,7 +71,7 @@ const Deposit = () => {
                         <p className='text-[#8B9199]'>{active === 'Bitcoin' ? 'BTC' : active === 'Ethereum' ? 'ETH' : 'USDT'}</p>
                     </div>
                     <div className='border-b-2 py-3 border-b-[#E8F2FF]'>
-                        <input type="number" value={amount} onChange={setAmount} className='w-40 md:w-full text-2xl font-medium' />
+                        <input type="text" value={amount} onChange={setAmount} className='w-40 md:w-full text-2xl font-medium' />
                     </div>
                 </div>
             </div>

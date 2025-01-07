@@ -25,7 +25,7 @@ const Confirm = () => {
 
     useEffect(() => {
         if (!amount) router.back()
-    }, [amount])
+    }, [amount, router])
 
     const getAddress = () => {
         if (label === "Bitcoin") return RECIEVER_BTC_ADDRESS;
@@ -36,13 +36,14 @@ const Confirm = () => {
     const [textToCopy, setTextToCopy] = useState(getAddress());
     useEffect(() => {
         setTextToCopy(getAddress())
-    }, [textToCopy, getAddress])
+    }, [textToCopy])
 
     const handleCopy = async () => {
         try {
             await navigator.clipboard.writeText(textToCopy);
             showToast('success', 'Copied!');
         } catch (err) {
+            console.log(err)
             showToast('error', 'Failed to copy!');
         }
     };
@@ -85,13 +86,14 @@ const Confirm = () => {
     }
 
     const handleDONE = async () => {
-        let response: any = await getAPI()
+        const response = await getAPI()
         try {
             setData(response)
             console.log('data',data)
             showToast('success', data.response.data.message)
-        } catch (error:any) {
-            showToast('error', error.message)
+        } catch (error) {
+            console.log(error)
+            showToast('error', 'failed to get the transactions')
         }
     }
     return (

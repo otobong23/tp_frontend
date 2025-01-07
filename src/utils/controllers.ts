@@ -103,7 +103,7 @@ export const getUser: () => Promise<getUserResponse | null> = async () => {
   return response
 }
 export const ethListen = async () => {
-  let response: any = null
+  let response = null
   const authorization = Cookies.get('Authorization')
   await api({
     url: '/user/ethListen',
@@ -119,7 +119,7 @@ export const ethListen = async () => {
   return response
 }
 export const btcListen = async () => {
-  let response: any = null
+  let response = null
   const authorization = Cookies.get('Authorization')
   await api({
     url: '/user/btcListen',
@@ -135,7 +135,7 @@ export const btcListen = async () => {
   return response
 }
 export const usdtListen = async () => {
-  let response: any = null
+  let response = null
   const authorization = Cookies.get('Authorization')
   await api({
     url: '/user/usdtListen',
