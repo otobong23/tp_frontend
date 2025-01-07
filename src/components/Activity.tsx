@@ -1,7 +1,7 @@
 import React from 'react';
 import usdt from '@/assets/usdt.png'
 import btc from '@/assets/btc.png'
-import eth from '@/assets/eth.png'
+import eth from '@/assets/eth.svg'
 import Image from 'next/image';
 
 export interface ActivityProps {

@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 
 const BottomBar = () => {
   const pathname = usePathname()
-  const active = (path: string) => path === pathname
+  const active = (path: string) => path === pathname || path === pathname.split('/deposit')[0] || path === pathname.split('/withdraw')[0]
   return (
     <div>
       <div className="flex justify-evenly items-center gap-10 md:justify-evenly">

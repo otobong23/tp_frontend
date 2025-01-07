@@ -1,10 +1,10 @@
 import React from 'react'
-import Withdraw from './Withdraw'
+import Confirm from './Confirm'
 
 const page = () => {
   return (
     <div>
-        <Withdraw />
+        <Confirm />
     </div>
   )
 }
