@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import usdt from '@/assets/usdt.png'
 import btc from '@/assets/btc.png'
 import eth from '@/assets/eth.svg'
