@@ -1,20 +1,58 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import loginDeskImg from '@/assets/loginDesktop.png'
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { LoginController } from '@/utils/controllers';
+// import { LoginController } from '@/utils/controllers';
 import useForm from '@/hooks/useForm';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import api from '@/utils/axios';
+import { showToast } from '@/utils/alert';
+import LoaderImg from '@/assets/loader.gif'
+
+interface LoginData {
+  email: string;
+  password: string;
+}
+interface LoginResponse {
+  token?: string;
+  message: string;
+  success: boolean;
+  user?: {
+    firstName: string;
+    lastName: string;
+    email: string;
+  }
+} 
 
 const Login: React.FC = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [email, setEmail] = useForm('');
   const [password, setPassword] = useForm('');
   const ROUTER = useRouter();
+  const [isLoading, setIsLoading] = useState(false)
 
+
+  const LoginController: (data: LoginData) => Promise<LoginResponse | null> = async (data) => {
+    let response: LoginResponse | null = null;
+    setIsLoading(true)
+    await api({
+      url: 'auth/signin',
+      method: 'POST',
+      data: data
+    }).then(res => {
+      setIsLoading(false)
+      showToast('success', res.data.message);
+      response = res.data;
+    }).catch(err => {
+      setIsLoading(false)
+      showToast('error', err.response.data.message);
+    })
+  
+    return response;
+  }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await LoginController({ email, password });
@@ -54,8 +92,8 @@ const Login: React.FC = () => {
             </div>
           </div>
 
-          <button className="w-full flex-1  py-3 rounded-[15px] bg-[#1992C9] text-white font-medium mt-[5rem]">
-            Login
+          <button className={`w-full flex-1 flex items-center justify-center py-3 rounded-[15px] bg-[#1992C9] text-white font-medium mt-[5rem] ${isLoading ? 'opacity-65' : 'opacity-100'}`} disabled={isLoading}>
+            {isLoading ? <Image alt='loader' src={LoaderImg} className='object-cover w-6' /> : 'Login'}
           </button>
           <div className='flex items-center justify-center pt-2'>
             <Link href='/auth/signup' className='text-[#1992C9] hover:text-[#1E293B] underline text-sm'>Create A New Account</Link>
