@@ -5,9 +5,6 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Image from 'next/image';
 import clientImg1 from '@/assets/client1.png'
-// import { div } from 'framer-motion/client';
-// import { motion } from 'framer-motion';
-// import styles from './Carousel.module.css';
 
 
 const Testimonial = () => {

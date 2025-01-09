@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import Image from 'next/image';
 import loginDeskImg from '@/assets/loginDesktop.png'
 import { Icon } from '@iconify/react/dist/iconify.js';
@@ -9,7 +9,7 @@ import { SignupController} from '@/utils/controllers';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 
-const Signup: React.FC = () => {
+const Signup:FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [ firstName, setFirstName ] = useForm('');
   const [ lastName, setLastName ] = useForm('');
@@ -79,7 +79,7 @@ const Signup: React.FC = () => {
             </div>
           </div>
 
-          <input type='submit' className="w-full flex-1  py-3 rounded-[15px] bg-[#1992C9] text-white font-medium mt-[5rem]" value='Create account' />
+          <input type='submit' className="w-full flex-1  py-3 rounded-[15px] bg-[#1992C9] text-white font-medium mt-[5rem] hover:scale-75 transition-all duration-300" value='Create account' />
           <div className='flex items-center justify-center pt-2'>
             <Link href='/auth/login' className='text-[#1992C9] hover:text-[#1E293B] underline text-sm'>Already Got An Account</Link>
           </div>
