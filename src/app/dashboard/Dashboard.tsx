@@ -67,7 +67,7 @@ const Dashboard = () => {
 
       <div>
         <p className='text-[17.21px]'>Portfolio balance</p>
-        <h1 className='font-bold text-[31.55px]'>${wallet}</h1>
+        <h1 className='font-bold text-[33px]'>${wallet}</h1>
         <p className='text-[#20CB5C] text-[14.34px] font-normal flex items-center gap-1'>{assetsValue ? <Icon icon="mynaui:chevron-up" className='text-[20px]' /> : ''} ${assetsValue} ({assetsValue ? (assetsValue / wallet) * 100 : 0}%)</p>
         <p className='text-[12.91px] text-[#888DA1] mt-1'>Today ({new Date().toDateString()})</p>
       </div>
