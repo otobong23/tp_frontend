@@ -57,7 +57,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className='lg:hidden mobile-right-side-bar'>
+      <div className='lg:hidden mobile-right-side-bar mb-3'>
         <div className="bg-[#1992C9] p-2 text-white min-h-[217px] rounded-[10px] flex flex-col items-center justify-center">
           <h1 className='text-2xl pb-9 font-bold'>Trader Profile</h1>
           <h2 className='pb-5 text-xl font-bold'>{firstName} {lastName}</h2>
