@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = 'https://tp-backend-wvue.onrender.com/api'
+// const baseURL = 'https://tp-backend-wvue.onrender.com/api'
+const baseURL = 'https://tradephere-backend.vercel.app/api'
 
 
 // Create an Axios instance
