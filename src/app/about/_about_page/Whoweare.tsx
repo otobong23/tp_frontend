@@ -25,12 +25,12 @@ const Whoweare = () => {
                 className='bg-transparent outline-none border-none py-5 text-[16px] w-[60%] flex-1'
               />
               
-              <Link href="/auth/login" className='bg-[#1992C9] flex items-center justify-center text-white text-[16px] px-[26px] font-light rounded-[12px]'>Get started</Link>
+              <Link href="/auth/signup" className='bg-[#1992C9] flex items-center justify-center text-white text-[16px] px-[26px] font-light rounded-[12px] hover:scale-75'>Get started</Link>
             </div>
           </header>
         </div>
-        <div className='flex mt-5 w-full h-[320px] lg:h-[640px] overflow-hidden flex-[1] bg-custom-radial'>
-          <Image src={serverImg} alt="alt" className='w-[298.69px] lg:w-[870.21px] h-[489.94px] lg:h-[932.13px] object-cover translate-x-[3rem] lg:translate-x-[.rem]' />
+        <div className='flex mt-5 w-full h-[320px] lg:h-[640px] overflow-hidden flex-[1] bg-custom-radial md:bg-none lg:bg-custom-radial'>
+          <Image src={serverImg} alt="alt" className='w-[298.69px] md:w-[450px] lg:w-[870.21px] h-[489.94px] lg:h-[932.13px] object-cover translate-x-[3rem]' />
 
         </div>
       </div>

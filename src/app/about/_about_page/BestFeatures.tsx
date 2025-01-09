@@ -29,12 +29,12 @@ const BestFeatures = () => {
           <h1 className='text-[30px] lg:text-[64px] md:w-[50%] m-auto font-bold leading-[40px] lg:leading-[84px] py-4'>Trade Phere best features</h1>
         </header>
 
-        <div className='grid md:grid-cols-3 justify-center gap-7 md:gap-[5rem] p-[1rem] mt-[3rem]'>
+        <div className='grid md:grid-cols-3 justify-center gap-4 md:gap-[5rem] p-[1rem] mt-[3rem]'>
           {
             features.map(({image, title, text}, index) => (
               <div key={index} >
                 <div className='w-full flex justify-center bg-black p-8 rounded-[15px]'>
-                  <Image src={image} alt="alt" className='w-[236px] h-[236px]'/>
+                  <Image src={image} alt="alt" className='w-[236px] h-[236px] object-contain'/>
                 </div>
 
                 <div className='text-left my-[3rem]'>

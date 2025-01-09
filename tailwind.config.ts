@@ -14,7 +14,7 @@ export default {
         foreground: "var(--foreground)",
       },
       backgroundImage: {
-        'custom-radial': 'radial-gradient(circle, #5743EB4D,#5743EB4D, transparent, transparent)',
+        'custom-radial': 'radial-gradient(circle, #5743EB4D, #5743EB4D, #5743EB4D, transparent, transparent, transparent)',
         'custom-linear': 'linear-gradient(to right, #4832F2, #1992C9)'
       },
     },

@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 import React from 'react'
 import Image from 'next/image'
 import welcImg from '@/assets/welcome.png'
+import Link from 'next/link'
 
 const programs = [
   {
@@ -43,7 +44,7 @@ const WelcomeToTradePhere = () => {
             </p>
 
             <div className='mt-[50px]'>
-              <button className='bg-[#1992C9] text-white text-[16px] px-[26px] py-4 font-light rounded-[12px] w-[50%]'>Get it now</button>
+              <Link href='/auth/signup' className='bg-[#1992C9] flex justify-center text-white text-[16px] px-[26px] py-4 font-light rounded-[12px] w-full lg:w-1/2 hover:scale-75'>Get it now</Link>
             </div>
           </header>
         </div>
@@ -53,7 +54,7 @@ const WelcomeToTradePhere = () => {
       </div>
 
       <div className='p-4 mt-8'>
-        <div className='md:flex px-[--padding-x]'>
+        <div className='lg:flex px-[--padding-x]'>
           <div className='flex-1'>
 
             <h1 className='text-[30px] lg:text-[64px] font-bold leading-[40px] lg:leading-[84px] py-4'>We make crypto easy.</h1>
@@ -62,7 +63,7 @@ const WelcomeToTradePhere = () => {
             </p>
 
             <div className='mt-[40px]'>
-              <button className='bg-[#1992C9] text-white text-[16px] px-[26px] py-4 font-light rounded-[12px] w-[60%]'>Learn more</button>
+              <Link href='/about' className='bg-[#1992C9] flex items-center justify-center text-white text-[16px] px-[26px] py-4 font-light rounded-[12px] w-full lg:w-[60%] hover:scale-75'>Learn more</Link>
             </div>
           </div>
 

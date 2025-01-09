@@ -1,6 +1,7 @@
 import api from '@/utils/axios';
 import { showToast } from '@/utils/alert';
 import Cookies from 'js-cookie';
+import { ActivityProps } from '@/components/Activity';
 
 interface SignupData {
   firstName: string;
@@ -102,6 +103,26 @@ export const getUser: () => Promise<getUserResponse | null> = async () => {
   })
   return response
 }
+
+
+export const getTransactions: () => Promise<ActivityProps[] | null> = async () => {
+  let response: ActivityProps[] | null = null
+  const authorization = Cookies.get('Authorization')
+  await api({
+    url: '/user/getTransactions',
+    method: 'GET',
+    headers: {
+      authorization
+    }
+  }).then(res => {
+    response = res.data;
+  }).catch(err => {
+    response = err
+  })
+  return response
+}
+
+
 export const ethListen = async () => {
   let response = null
   const authorization = Cookies.get('Authorization')
@@ -150,3 +171,4 @@ export const usdtListen = async () => {
   })
   return response
 }
+

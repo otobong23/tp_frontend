@@ -34,7 +34,7 @@ const BestFeatures = () => {
             features.map(({image, title, text}, index) => (
               <div key={index} >
                 <div className='w-full flex justify-center bg-black p-8 rounded-[15px]'>
-                  <Image src={image} alt="alt" className='w-[236px] h-[236px]'/>
+                  <Image src={image} alt="alt" className='w-[236px] h-[236px] object-contain'/>
                 </div>
 
                 <div className='text-left my-[3rem]'>

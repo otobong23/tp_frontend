@@ -4,10 +4,10 @@ import Accordion from './Accordion';
 
 const Questions = () => {
   const items = [
-    { title: "Where can I watch?", content: "Nibh quisque suscipit fermentum netus nulla cras porttitor euismod nulla. Orci, dictumst nec aliquet id ullamcorper venenatis. Fermentum sulla craspor ttitore  ismod nulla." },
+    { title: "How I Contact Your Services", content: "Our Services can be contacted at tradephere@gmail.com" },
     { title: "How do I subscribe?", content: "Follow these steps to subscribe." },
-    { title: "What is the pricing?", content: "Pricing starts at $9.99/month." },
-    { title: "Do you offer a free trial?", content: "Yes, we offer a 7-day free trial." },
+    { title: "What is the pricing?", content: "Pricing starts at $50/month." },
+    { title: "Do you offer a free trial?", content: "NO, we do not offer a free trial." },
   ];
   
   return (

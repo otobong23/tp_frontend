@@ -23,7 +23,7 @@ const GetInTouch = () => {
               <label htmlFor="message"></label>
               <textarea name="message" id="message" placeholder='Write your message' className='bg-[#FFFFFF] outline-none border-none w-full h-[160px]'></textarea>
             </div>
-            <button className='bg-[#1992C9] rounded-[8px] text-[#FFFFFF] w-full p-4 my-6  m-auto'>Send message</button>
+            <button className='bg-[#1992C9] rounded-[8px] text-[#FFFFFF] w-full p-4 my-6 m-auto hover:scale-75'>Send message</button>
           </form>
 
         </div>

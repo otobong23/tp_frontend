@@ -1,6 +1,7 @@
 import React from 'react'
 import becomeImg from '@/assets/become.png'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const BecomeAnInvestor = () => {
   return (
@@ -15,7 +16,7 @@ const BecomeAnInvestor = () => {
             </p>
 
             <div className='mt-[50px]'>
-              <button className='bg-[#1992C9] text-white text-[16px] px-[26px] py-4 font-light rounded-[12px] w-[50%]'>Get it now</button>
+              <Link href='/auth/signp' className='bg-[#1992C9] text-white text-[16px] px-[26px] py-4 font-light rounded-[12px] w-[50%]'>Get it now</Link>
             </div>
           </header>
         </div>

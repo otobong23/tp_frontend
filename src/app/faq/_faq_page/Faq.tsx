@@ -2,8 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 import phoneImg from '@/assets/phone.png'
 import TradingViewTickerTape from '@/components/TradingViewTickerTape'
-// import { Icon } from '@iconify/react/dist/iconify.js'
-// import faqImg from '@/assets/clipboard.svg'
+import Link from 'next/link'
+import welcImg from '@/assets/welcome.png'
 const Faq = () => {
   return (
     <div className='py-14 lg:py-24'>
@@ -22,13 +22,13 @@ const Faq = () => {
                 className='bg-transparent outline-none border-none py-5 text-[16px] w-[60%] flex-1'
               />
 
-              <button className='bg-[#1992C9] text-white text-[16px] px-[26px] font-light rounded-[12px]'>Get started</button>
+              <Link href="/auth/signup" className='bg-[#1992C9] flex items-center justify-center text-white text-[16px] px-[26px] font-light rounded-[12px] hover:scale-75'>Get started</Link>
             </div>
           </header>
         </div>
-        <div className='flex mt-5 w-full h-[320px] lg:h-[600px] overflow-hidden flex-[1] bg-custom-radial'>
-          <Image src={phoneImg} alt="alt" className='w-[298.69px] lg:w-[500.21px] h-[489.94px] lg:h-[800.13px] object-cover translate-x-[3rem] lg:translate-x-[11.9rem]' />
-
+        <div className='flex justify-end mt-5 w-full h-[320px] lg:h-[600px] overflow-hidden flex-[1] bg-custom-radial md:bg-none lg:bg-custom-radial'>
+          <Image src={welcImg} alt='img' className='object-cover hidden md:block lg:hidden' />
+          <Image src={phoneImg} alt="alt" className='w-[298.69px] lg:w-[500.21px] h-[489.94px] lg:h-[800.13px] object-cover' />
         </div>
       </div>
 

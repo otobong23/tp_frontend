@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react/dist/iconify.js'
 const Legal = () => {
   return (
     <div>
-      <div className='p-[--padding-x] m-auto md:flex justify-between items-center'>
+      <div className='p-[--padding-x] m-auto md:flex gap-3 justify-between items-center'>
         <div className="flex-1 w-full h-full">
           <Image src={legalImg} alt="legal" className='w-[455px] h-[496px]' />
         </div>
@@ -18,8 +18,8 @@ const Legal = () => {
             As a UK-registered company, we operate with full transparency, adhering to strict regulations governing all crypto and financial trades in other to ensure trust amd reliability.
           </p>
 
-          <Link href="href" >
-            <p className='flex items-center gap-1 mt-6 text-[16px] text-[#C2C1C3]'>View Certificate <Icon icon="zondicons:cheveron-right" className='text-[25px]'/></p>
+          <Link href="/about/view-certificate">
+            <span className='flex items-center gap-1 mt-6 text-[16px] text-[#C2C1C3] underline hover:text-[#1992C9] transition-all duration-300'>View Certificate <Icon icon="zondicons:cheveron-right" className='text-[25px]'/></span>
           </Link>
         </header>
       </div>

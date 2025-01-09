@@ -66,3 +66,7 @@ td, th {
 input{
   @apply outline-none transition-all duration-300;
 }
+
+a, button{
+  @apply transition-all duration-300
+}

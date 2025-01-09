@@ -1,39 +1,16 @@
 'use client';
 import Activity, { ActivityProps } from '@/components/Activity'
 import TradingviewWidget from '@/components/TradingviewWidget'
-import { getUser } from '@/utils/controllers';
+import { getTransactions, getUser } from '@/utils/controllers';
 import { Icon } from '@iconify/react/dist/iconify.js'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-// const data = [
-//   {
-//     transaction: "Bitcoin",
-//     amount: '0.5',
-//     total: 15000,
-//     status: 'successful',
-//     date: '2024-12-27',
-//   },
-//   {
-//     transaction: "Ethereum",
-//     amount: '2.0',
-//     total: 3000,
-//     status: 'successful',
-//     date: '2024-12-26',
-//   },
-//   {
-//     transaction: "USDT",
-//     amount: '200',
-//     total: 200,
-//     status: 'successful',
-//     date: '2024-12-20',
-//   },
-// ];
 
 const Dashboard = () => {
   const [wallet, setWallet] = useState(0)
   const [assetsValue, setAssetsValue] = useState(0)
-  const data: ActivityProps[] = []
+  const [data, setData] = useState<ActivityProps[]>([])
 
   useEffect(() => {
     getUser().then(res => {
@@ -44,6 +21,12 @@ const Dashboard = () => {
       }
     }).catch(err => { console.error(err) })
   }, [])
+
+  useEffect(() => {
+    getTransactions().then(res => {
+      if (res?.length) setData(res)
+    })
+  },[])
   return (
     <div>
       <div className="flex justify-between items-center pb-14">

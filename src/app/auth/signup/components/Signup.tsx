@@ -80,11 +80,14 @@ const Signup: React.FC = () => {
           </div>
 
           <input type='submit' className="w-full flex-1  py-3 rounded-[15px] bg-[#1992C9] text-white font-medium mt-[5rem]" value='Create account' />
+          <div className='flex items-center justify-center pt-2'>
+            <Link href='/auth/login' className='text-[#1992C9] hover:text-[#1E293B] underline text-sm'>Already Got An Account</Link>
+          </div>
         </form>
 
         {/* privacy policy */}
         <div className='flex flex-col mt-3'>
-          <p className='text-[#475569] text-[12px] text-center'>By continuing, you agree to our <Link href="href" className='text-[#3C9AFB]'>Terms and Services</Link> and <Link href="href" className='text-[#3C9AFB]'>Privacy Policy</Link> </p>
+          <p className='text-[#475569] text-[12px] text-center'>By continuing, you agree to our <Link href="/" className='text-[#3C9AFB]'>Terms and Services</Link> and <Link href="/" className='text-[#3C9AFB]'>Privacy Policy</Link> </p>
           
         </div>
 
@@ -93,7 +96,7 @@ const Signup: React.FC = () => {
           <div className='absolute -top-[30%] left-[55%]'>
             <div className="hidden lg:block h-[1327px] w-[1120px]">
               <Image
-                src={loginDeskImg} // Replace with desktop image path
+                src={loginDeskImg}
                 alt="3D Globe with Shield"
                 className=" object-cover w-full h-[83%]"
               />
