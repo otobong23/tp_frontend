@@ -5,12 +5,6 @@ import React, { useState } from 'react'
 
 const programs = [
   {
-    percent: 20,
-    period: 'After 24 hours',
-    text: 'min $50 - max $499',
-    icon: 'gg:chart'
-  },
-  {
     percent: 50,
     period: 'After 24 hours',
     text: 'min $50 - max $499',
@@ -18,13 +12,13 @@ const programs = [
   },
   {
     percent: 100,
-    period: 'After 2 Days',
+    period: 'After 24 hours',
     text: 'min $1000 - $4999',
     icon: 'gg:chart'
   },
   {
     percent: 150,
-    period: 'After 3 Days',
+    period: 'After 24 hours',
     text: 'min $5000 - $100,000',
     icon: 'gg:chart'
   },
