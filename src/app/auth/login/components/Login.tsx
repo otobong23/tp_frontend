@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import loginDeskImg from '@/assets/loginDesktop.png'
 import { Icon } from '@iconify/react/dist/iconify.js';
-// import { LoginController } from '@/utils/controllers';
 import useForm from '@/hooks/useForm';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';

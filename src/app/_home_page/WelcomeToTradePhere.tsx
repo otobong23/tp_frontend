@@ -13,7 +13,7 @@ const programs = [
   },
   {
     percent: 100,
-    period: 'After 2 Days',
+    period: 'After 24 hours',
     text: 'min $1000 - $4999',
     icon: 'gg:chart'
   },

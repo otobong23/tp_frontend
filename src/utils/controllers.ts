@@ -1,6 +1,7 @@
 import api from '@/utils/axios';
 import Cookies from 'js-cookie';
 import { ActivityProps } from '@/components/Activity';
+import { showToast } from './alert';
 
 
 export interface getUserResponse {
@@ -31,6 +32,7 @@ export const getUser: () => Promise<getUserResponse | null> = async () => {
   }).then(res => {
     response = res.data;
   }).catch(err => {
+    showToast('error', err.response.data.message)
     response = err
   })
   return response
@@ -49,6 +51,7 @@ export const getTransactions: () => Promise<ActivityProps[] | null> = async () =
   }).then(res => {
     response = res.data;
   }).catch(err => {
+    showToast('error', err.response.data.message)
     response = err
   })
   return response
@@ -67,6 +70,7 @@ export const ethListen = async () => {
   }).then(res => {
     response = res.data;
   }).catch(err => {
+    showToast('error', err.response.data.message)
     response = err
   })
   return response
@@ -83,6 +87,7 @@ export const btcListen = async () => {
   }).then(res => {
     response = res.data;
   }).catch(err => {
+    showToast('error', err.response.data.message)
     response = err
   })
   return response
@@ -99,6 +104,7 @@ export const usdtListen = async () => {
   }).then(res => {
     response = res.data;
   }).catch(err => {
+    showToast('error', err.response.data.message)
     response = err
   })
   return response
