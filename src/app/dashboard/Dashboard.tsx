@@ -57,6 +57,17 @@ const Dashboard = () => {
         </div>
       </div>
 
+      <div>
+        <p className='text-[17.21px]'>Portfolio balance</p>
+        <h1 className='font-bold text-[31.55px]'>${wallet}</h1>
+        <p className='text-[#20CB5C] text-[14.34px] font-normal flex items-center gap-1'>{assetsValue ? <Icon icon="mynaui:chevron-up" className='text-[20px]' /> : ''} ${assetsValue} ({assetsValue ? (assetsValue / wallet) * 100 : 0}%)</p>
+        <p className='text-[12.91px] text-[#888DA1] mt-1'>Today ({new Date().toDateString()})</p>
+      </div>
+
+      <div className='mt-7 w-full'>
+        <TradingviewWidget />
+      </div>
+
       <div className='lg:hidden mobile-right-side-bar'>
         <div className="bg-[#1992C9] p-2 text-white min-h-[217px] rounded-[10px] flex flex-col items-center justify-center">
           <h1 className='text-2xl pb-9 font-bold'>Trader Profile</h1>
@@ -85,17 +96,6 @@ const Dashboard = () => {
               </div>))}
           </div>
         </div>
-      </div>
-
-      <div>
-        <p className='text-[17.21px]'>Portfolio balance</p>
-        <h1 className='font-bold text-[31.55px]'>${wallet}</h1>
-        <p className='text-[#20CB5C] text-[14.34px] font-normal flex items-center gap-1'>{assetsValue ? <Icon icon="mynaui:chevron-up" className='text-[20px]' /> : ''} ${assetsValue} ({assetsValue ? (assetsValue / wallet) * 100 : 0}%)</p>
-        <p className='text-[12.91px] text-[#888DA1] mt-1'>Today ({new Date().toDateString()})</p>
-      </div>
-
-      <div className='mt-7 w-full'>
-        <TradingviewWidget />
       </div>
 
       {/* Activity */}
