@@ -1,5 +1,6 @@
 "use client"
 import { Icon } from '@iconify/react/dist/iconify.js'
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 const programs = [
@@ -111,9 +112,9 @@ const Page = () => {
         </div>
 
         <div>
-          <button className='bg-gradient-to-r from-[#4832F2] to-[#1992C9] text-[#fff] text-[13.34px] font-normal w-[221px]  py-3 rounded-[10px] mt-5'>
+          <Link href='/dashboard/wallet/deposit' className='bg-gradient-to-r from-[#4832F2] to-[#1992C9] text-[#fff] text-[13.34px] font-normal w-[221px]  py-3 rounded-[10px] mt-5'>
             Make deposit
-          </button>
+          </Link>
         </div>
       </div>
 
