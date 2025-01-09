@@ -4,7 +4,7 @@ export const navLinks = [
   {title: 'Plans', path: '/dashboard/plans', icon: 'ion:list'},
   {title: 'Wallet', path: '/dashboard/wallet', icon: 'solar:wallet-outline'},
   {title: 'History', path: '/dashboard/history', icon: 'solar:history-linear'},
-  {title: 'Logout', path: '/dashboard/logout', icon: 'material-symbols:logout-rounded'},
+  {title: 'Logout', icon: 'material-symbols:logout-rounded'},
 ]
 
 export const navlist = [

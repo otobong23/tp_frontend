@@ -4,12 +4,6 @@ import Image from 'next/image'
 import welcImg from '@/assets/welcome.png'
 
 const programs = [
-  // {
-  //   percent: 20,
-  //   period: 'After 24 hours',
-  //   text: 'min $50 - max $499',
-  //   icon: 'gg:chart'
-  // },
   {
     percent: 50,
     period: 'After 24 hours',
@@ -22,12 +16,6 @@ const programs = [
     text: 'min $1000 - $4999',
     icon: 'gg:chart'
   },
-  // {
-  //   percent: 150,
-  //   period: 'After 3 Days',
-  //   text: 'min $5000 - $100,000',
-  //   icon: 'gg:chart'
-  // },
   {
     percent: 200,
     period: 'After 24 hours',
@@ -35,9 +23,9 @@ const programs = [
     icon: 'gg:chart'
   },
   {
-    percent: null,
-    period: '',
-    text: 'min $ --------- $-------+',
+    percent: 300,
+    period: 'After 24 hours',
+    text: 'min $200,000 - $999,000',
     icon: 'gg:chart'
   }
 ]
