@@ -1,11 +1,13 @@
 'use client';
 import Image, { StaticImageData } from 'next/image';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import btc from '@/assets/btc.png'
 import eth from '@/assets/eth.svg'
 import usdt from '@/assets/usdt.png'
 import useForm from '@/hooks/useForm';
 import { showToast } from '@/utils/alert';
+import { getUser } from '@/utils/controllers';
+import { useRouter } from 'next/navigation';
 
 
 type activeType = 'Bitcoin' | 'Ethereum' | 'USDT'
@@ -22,10 +24,28 @@ const Withdraw = () => {
   const [active, setActive] = useState<activeType>('' as activeType)
   const [amount, setAmount] = useForm('')
   const [address, setAddress] = useForm('')
+  const [wallet, setWallet] = useState(0)
+  const router = useRouter()
+
+  useEffect(() => {
+    getUser().then(res => {
+      if (res) {
+        const { user } = res
+        setWallet(user.wallet.balance)
+      }
+    }).catch(err => { console.error(err) })
+  }, [])
 
   const handleWithdraw = () => {
-    if(active && amount && address){
-      showToast("info", 'Something went Wrong, please Try again later')
+    if (active && amount && address) {
+      if(Number(amount) <= wallet){
+        showToast("success", 'Withdraw Has been made succesfully')
+        router.replace('/dashboard')
+      } else{
+        showToast("warning", "Withdraw Can't be made, Amount is less than Portfolio balance")
+      }
+    } else{
+      showToast('info', "please fill up the details")
     }
   }
   return (

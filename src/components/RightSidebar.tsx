@@ -11,7 +11,7 @@ const RightSidebar = () => {
   const assets = ['BTC', 'ETH', 'USDT']
   const [firstName, setFirstName] = useState('user')
   const [lastName, setLastName] = useState('name')
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const setDate = (param: string) => {
     setJoined(new Date(param))
   }
@@ -28,7 +28,7 @@ const RightSidebar = () => {
         setDate(user.createdAt)
         assetsFunc(user.wallet.assetValue)
         setName(user.firstName, user.lastName)
-        setEmail(user.email)
+        setUsername(user.username)
       }
     })
     .catch(() => {router.push('/auth/login/')})
@@ -38,7 +38,7 @@ const RightSidebar = () => {
       <div className="bg-[#1992C9] p-2 text-white min-h-[217px] rounded-[10px] flex flex-col items-center justify-center">
         <h1 className='text-2xl pb-9 font-bold'>Trader Profile</h1>
         <h2 className='pb-5 text-xl font-bold'>{firstName} {lastName}</h2>
-        <Link href='mailto:email@gmail.com' className='text-sm  break-all text-center'>{email}</Link>
+        <h3 className='text-sm  break-all text-center'>{username}</h3>
       </div>
 
       <div className='px-[14px] pt-10 pb-8 mb-9 border-b-[#F4F2FB] border-b'>

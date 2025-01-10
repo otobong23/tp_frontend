@@ -14,7 +14,7 @@ const Dashboard = () => {
   const assets = ['BTC', 'ETH', 'USDT']
   const [firstName, setFirstName] = useState('user')
   const [lastName, setLastName] = useState('name')
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [data, setData] = useState<ActivityProps[]>([])
   const setDate = (param: string) => {
     setJoined(new Date(param))
@@ -22,8 +22,8 @@ const Dashboard = () => {
   const assetsFunc = (param: number) => {
     setAssetsValue(param)
   }
-  const setName = (first:string, last:string) => {
-    setFirstName(first);setLastName(last)
+  const setName = (first: string, last: string) => {
+    setFirstName(first); setLastName(last)
   }
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Dashboard = () => {
         setDate(user.createdAt)
         assetsFunc(user.wallet.assetValue)
         setName(user.firstName, user.lastName)
-        setEmail(user.email)
+        setUsername(user.username)
       }
     }).catch(err => { console.error(err) })
   }, [])
@@ -61,7 +61,7 @@ const Dashboard = () => {
         <div className="bg-[#1992C9] p-2 text-white min-h-[217px] rounded-[10px] flex flex-col items-center justify-center">
           <h1 className='text-2xl pb-9 font-bold'>Trader Profile</h1>
           <h2 className='pb-5 text-xl font-bold'>{firstName} {lastName}</h2>
-          <Link href='mailto:email@gmail.com' className='text-sm  break-all text-center'>{email}</Link>
+          <h3 className='text-sm  break-all text-center'>{username}</h3>
         </div>
       </div>
 
@@ -70,6 +70,11 @@ const Dashboard = () => {
         <h1 className='font-bold text-[33px]'>${wallet}</h1>
         <p className='text-[#20CB5C] text-[14.34px] font-normal flex items-center gap-1'>{assetsValue ? <Icon icon="mynaui:chevron-up" className='text-[20px]' /> : ''} ${assetsValue} ({assetsValue ? (assetsValue / wallet) * 100 : 0}%)</p>
         <p className='text-[12.91px] text-[#888DA1] mt-1'>Today ({new Date().toDateString()})</p>
+      </div>
+
+      <div className='flex flex-col md:flex-row justify-center items-center gap-8 py-3'>
+        <Link href="/dashboard/wallet/deposit" className='flex items-center justify-center text-white bg-custom-linear rounded-xl px-20 py-4 w-full md:w-max'>Deposit</Link>
+        <Link href="/dashboard/wallet/withdraw" className='flex items-center justify-center text-white bg-custom-linear rounded-xl px-20 py-4 w-full md:w-max'>Withdraw</Link>
       </div>
 
       <div className='mt-7 w-full'>

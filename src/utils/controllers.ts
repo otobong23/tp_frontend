@@ -9,7 +9,7 @@ export interface getUserResponse {
   user: {
     firstName: string,
     lastName: string,
-    email: string,
+    username: string,
     wallet: {
       balance: number,
       assetValue: number,

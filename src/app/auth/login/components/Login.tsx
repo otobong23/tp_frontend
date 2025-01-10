@@ -12,7 +12,7 @@ import { showToast } from '@/utils/alert';
 import LoaderImg from '@/assets/loader.gif'
 
 interface LoginData {
-  email: string;
+  username: string;
   password: string;
 }
 interface LoginResponse {
@@ -22,13 +22,13 @@ interface LoginResponse {
   user?: {
     firstName: string;
     lastName: string;
-    email: string;
+    username: string;
   }
 } 
 
 const Login: React.FC = () => {
   const [showPassword, setShowPassword] = React.useState(false);
-  const [email, setEmail] = useForm('');
+  const [username, setUsername] = useForm('');
   const [password, setPassword] = useForm('');
   const ROUTER = useRouter();
   const [isLoading, setIsLoading] = useState(false)
@@ -54,7 +54,7 @@ const Login: React.FC = () => {
   }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await LoginController({ email, password });
+    const res = await LoginController({ username, password });
 
     if (res && res.token) {
       Cookies.set('Authorization', 'Bearer ' + res.token, {
@@ -76,8 +76,8 @@ const Login: React.FC = () => {
 
         <form className=" flex flex-col gap-3 mt-6 sm:max-w-[400px] mx-auto" onSubmit={handleSubmit}>
           <div className='flex flex-col text-[14px] gap-2'>
-            <label htmlFor="email" className='text-[#1E293B] font-normal'>E-mail</label>
-            <input type="email" id='email' placeholder='Enter your email' required value={email} onChange={setEmail} className='text-[#475569] border-[1.5px] border-[#E2E8F0] py-3 px-4 rounded-[15px]' />
+            <label htmlFor="username" className='text-[#1E293B] font-normal'>Username</label>
+            <input type="text" id='username' placeholder='Enter your username' required value={username} onChange={setUsername} className='text-[#475569] border-[1.5px] border-[#E2E8F0] py-3 px-4 rounded-[15px]' />
           </div>
           <div className='flex flex-col text-[14px] gap-2'>
             <label htmlFor="password" className='text-[#1E293B] font-normal'>Password</label>

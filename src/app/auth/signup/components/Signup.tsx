@@ -15,7 +15,7 @@ import LoaderImg from '@/assets/loader.gif'
 interface SignupData {
   firstName: string;
   lastName: string;
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -26,7 +26,7 @@ export interface SignupResponse {
   user?: {
     firstName: string;
     lastName: string;
-    email: string;
+    username: string;
   }
 }
 
@@ -36,7 +36,7 @@ const Signup: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [firstName, setFirstName] = useForm('');
   const [lastName, setLastName] = useForm('');
-  const [email, setEmail] = useForm('');
+  const [username, setUsername] = useForm('');
   const [password, setPassword] = useForm('');
   const [confirmPassword, setConfirmPassword] = useForm('');
   const ROUTER = useRouter();
@@ -64,7 +64,7 @@ const Signup: FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await SignupController({ firstName, lastName, email, password });
+    const res = await SignupController({ firstName, lastName, username, password });
     // setResponse(res);
     if (res && res.token) {
       Cookies.set('Authorization', 'Bearer ' + res.token, {
@@ -96,8 +96,8 @@ const Signup: FC = () => {
             </div>
           </div>
           <div className='flex flex-col text-[14px] gap-2'>
-            <label htmlFor="email" className='text-[#1E293B] font-normal'>E-mail</label>
-            <input type="email" id='email' placeholder='Enter your email' required value={email} onChange={setEmail} className='text-[#475569] border-[1.5px] border-[#E2E8F0] py-3 px-4 rounded-[15px] focus-within:border-[#000000]' />
+            <label htmlFor="username" className='text-[#1E293B] font-normal'>E-mail</label>
+            <input type="text" id='username' placeholder='Enter your username' required value={username} onChange={setUsername} className='text-[#475569] border-[1.5px] border-[#E2E8F0] py-3 px-4 rounded-[15px] focus-within:border-[#000000]' />
           </div>
           <div className='flex flex-col text-[14px] gap-2 mb-3'>
             <label htmlFor="password" className='text-[#1E293B] font-normal'>Password</label>
