@@ -10,7 +10,9 @@ import { useContextStore } from '@/context/DepositContext';
 import getCryptoToUsdtRate from '@/utils/getCryptoToUsdtRate';
 import { showToast } from '@/utils/alert';
 import { useRouter } from 'next/navigation';
-import { btcListen, ethListen, usdtListen } from '@/utils/controllers';
+import api from '@/utils/axios';
+import Cookies from 'js-cookie';
+import LoaderImg from '@/assets/loader.gif'
 
 const RECIEVER_BTC_ADDRESS = '1NDHZtXsy1QPRt4sro23agUcFX1vqaWSGG'
 const RECIEVER_ETH_ADDRESS = '0xc92adc6fa9dc7d1aa8cbb10e2250f29f84669139'
@@ -20,8 +22,6 @@ const Confirm = () => {
     const router = useRouter()
     const { label, amount } = useContextStore()
     const [usdtRate, setUsdtRate] = useState(0)
-
-    const [data, setData] = useState<{response: {data: {message: string}}} | null>()
 
     useEffect(() => {
         if (!amount) router.back()
@@ -78,23 +78,67 @@ const Confirm = () => {
         getCryptoToUsdtRate(getLabel()).then(res => setUsdtRate(res))
     }, [label, amount, usdtRate])
 
+    const [isLoading, setIsLoading] = useState(false)
+    const ethListen = async () => {
+        setIsLoading(true)
+        const authorization = Cookies.get('Authorization')
+        await api({
+            url: '/user/ethListen',
+            method: 'POST',
+            headers: {
+                authorization
+            }
+        }).then(res => {
+            setIsLoading(false)
+            showToast('success', res.data.message)
+            router.replace('/dashboard')
+        }).catch(err => {
+            setIsLoading(false)
+            showToast('error', err.response.data.message)
+        })
+    }
+    const btcListen = async () => {
+        setIsLoading(true)
+        const authorization = Cookies.get('Authorization')
+        await api({
+            url: '/user/btcListen',
+            method: 'POST',
+            headers: {
+                authorization
+            }
+        }).then(res => {
+            setIsLoading(false)
+            showToast('success', res.data.message)
+            router.replace('/dashboard')
+        }).catch(err => {
+            setIsLoading(false)
+            showToast('error', err.response.data.message)
+        })
+    }
+    const usdtListen = async () => {
+        setIsLoading(true)
+        const authorization = Cookies.get('Authorization')
+        await api({
+            url: '/user/usdtListen',
+            method: 'POST',
+            headers: {
+                authorization
+            }
+        }).then(res => {
+            setIsLoading(false)
+            showToast('success', res.data.message)
+            router.replace('/dashboard')
+        }).catch(err => {
+            setIsLoading(false)
+            showToast('error', err.response.data.message)
+        })
+    }
+
     const getAPI = async () => {
         if (label === "Bitcoin") return await btcListen();
         if (label === "Ethereum") return await ethListen();
         if (label === "USDT") return await usdtListen();
         return await usdtListen()
-    }
-
-    const handleDONE = async () => {
-        const response = await getAPI()
-        try {
-            setData(response)
-            console.log('data',data)
-            showToast('success', data?.response?.data.message || '')
-        } catch (error) {
-            console.log(error)
-            showToast('error', 'failed to get the transactions')
-        }
     }
     return (
         <div className='flex justify-center'>
@@ -129,7 +173,9 @@ const Confirm = () => {
                         <p>{getNetwork()}</p>
                     </div>
                     <div className='flex justify-center pt-16 lg:pt-24 pb-5'>
-                        <button onClick={handleDONE} className='bg-[#1992C9] text-white py-5 rounded-xl w-full md:w-max px-16 flex items-center justify-center'>Done</button>
+                        <button onClick={getAPI} className='bg-[#1992C9] text-white py-5 rounded-xl w-full md:w-max px-16 flex items-center justify-center' disabled={isLoading}>
+                            {isLoading ? <Image alt='loader' src={LoaderImg} className='object-cover w-6' /> : 'Done'}
+                        </button>
                     </div>
                 </div>
             </div>
