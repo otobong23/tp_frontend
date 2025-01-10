@@ -94,7 +94,7 @@ const Withdraw = () => {
             <input type="text" value={address} onChange={setAddress} className='w-40 md:w-full text-2xl font-medium' />
           </div>
         </div>
-      </div>*/
+      </div>*/}
 
       <div className='flex justify-center pt-16 lg:pt-24 pb-5'>
         <button onClick={handleWithdraw} className='bg-[#1992C9] text-white py-5 rounded-xl w-full md:w-max px-16 flex items-center justify-center'>Withdraw</button>
