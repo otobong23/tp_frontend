@@ -96,7 +96,7 @@ const Signup: FC = () => {
             </div>
           </div>
           <div className='flex flex-col text-[14px] gap-2'>
-            <label htmlFor="username" className='text-[#1E293B] font-normal'>E-mail</label>
+            <label htmlFor="username" className='text-[#1E293B] font-normal'>Username</label>
             <input type="text" id='username' placeholder='Enter your username' required value={username} onChange={setUsername} className='text-[#475569] border-[1.5px] border-[#E2E8F0] py-3 px-4 rounded-[15px] focus-within:border-[#000000]' />
           </div>
           <div className='flex flex-col text-[14px] gap-2 mb-3'>
