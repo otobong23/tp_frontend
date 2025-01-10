@@ -23,7 +23,7 @@ const list: listType[] = [
 const Withdraw = () => {
   const [active, setActive] = useState<activeType>('' as activeType)
   const [amount, setAmount] = useForm('')
-  const [address, setAddress] = useForm('')
+  //const [address, setAddress] = useForm('')
   const [wallet, setWallet] = useState(0)
   const router = useRouter()
 
@@ -37,7 +37,7 @@ const Withdraw = () => {
   }, [])
 
   const handleWithdraw = () => {
-    if (active && amount && address) {
+    if (active && amount) {
       if(Number(amount) <= wallet){
         showToast("success", 'Withdraw Has been made succesfully')
         router.replace('/dashboard')
@@ -83,7 +83,7 @@ const Withdraw = () => {
         </div>
       </div>
 
-      <div className='pt-8'>
+      {/*<div className='pt-8'>
         <h1 className='text-sm text-[#5D6166] pb-2'>Enter Wallet Address</h1>
         <div className='flex items-center pl-11 gap-10 w-full'>
           <div className='flex py-3 gap-2 border-b-2 border-b-[#E8F2FF]'>
@@ -94,7 +94,7 @@ const Withdraw = () => {
             <input type="text" value={address} onChange={setAddress} className='w-40 md:w-full text-2xl font-medium' />
           </div>
         </div>
-      </div>
+      </div>*/
 
       <div className='flex justify-center pt-16 lg:pt-24 pb-5'>
         <button onClick={handleWithdraw} className='bg-[#1992C9] text-white py-5 rounded-xl w-full md:w-max px-16 flex items-center justify-center'>Withdraw</button>
