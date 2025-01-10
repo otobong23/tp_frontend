@@ -38,7 +38,7 @@ const Dashboard = () => {
         setUsername(user.username)
       }
     }).catch(err => { console.error(err) })
-  }, [])
+  })
 
   useEffect(() => {
     getTransactions().then(res => {
