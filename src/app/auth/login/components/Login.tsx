@@ -54,7 +54,7 @@ const Login: React.FC = () => {
   }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await LoginController({ username, password });
+    const res = await LoginController({ username: username.trim(), password: password.trim() });
 
     if (res && res.token) {
       Cookies.set('Authorization', 'Bearer ' + res.token, {
