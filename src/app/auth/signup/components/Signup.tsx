@@ -64,7 +64,7 @@ const Signup: FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await SignupController({ firstName, lastName, username, password });
+    const res = await SignupController({ firstName: firstName.trim(), lastName: lastName.trim(), username: username.trim(), password: password.trim() });
     // setResponse(res);
     if (res && res.token) {
       Cookies.set('Authorization', 'Bearer ' + res.token, {
